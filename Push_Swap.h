@@ -1,6 +1,6 @@
 
-#ifndef SWAP.H
-#define SWAP.H
+#ifndef SWAP_H
+#define SWAP_H
 
 
 typedef struct swapdeneme
