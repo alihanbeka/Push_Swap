@@ -13,6 +13,25 @@ void	sa(s_node *a)
 	a->next->value = tmp;
 }
 
+void    sb(s_node *b){
+    int tmp;
+    
+    if(b==NULL || b->next ==NULL)
+        return;
+
+    tmp=b->value;
+    b->value=b->next->value;
+    b->next->value=tmp;
+}
+
+void    ss(s_node *a, s_node *b)
+ {
+    sa(a);
+    sb(b);
+
+} 
+
+
 int	main(void)
 {
 	s_node	*a;

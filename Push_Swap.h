@@ -3,11 +3,11 @@
 #define SWAP_H
 
 
-typedef struct swapdeneme
+typedef struct pushswap
 { 
     int                 value;
-	struct swapdeneme	*next;
-	struct swapdeneme	*prev;
+	struct pushswap		*next;
+	struct pushswap		*prev;
     
 } s_node;
 
