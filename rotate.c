@@ -12,42 +12,46 @@
 
 #include "Push_Swap.h"
 
-static void	rotate(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	if (!stack || !(*stack) || (*stack)->next == NULL)
-		return ;
-	tmp = (*stack);
-	(*stack) = (*stack)->next;
-	lastnode(*stack)->next = tmp;
-	tmp->next = NULL;
-}
-
 static t_stack	*lastnode(t_stack *lst)
 {
-	if (!lst)
+	if (lst == NULL)
 		return (NULL);
-	while (lst->next)
+	while (lst->next != NULL)
 		lst = lst->next;
 	return (lst);
 }
 
+static int	rotate(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return (0);
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = NULL;
+	lastnode(*stack)->next = tmp;
+	return (1);
+}
+
 void	ra(t_stack **a)
 {
-	rotate(a);
-	write(1, "ra\n", 3);
+	if (rotate(a))
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
 {
-	rotate(b);
-	write(1, "rb\n", 3);
+	if (rotate(b))
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **a, t_stack **b)
 {
-	rotate(a);
-	rotate(b);
-	write(1, "rr\n", 3);
+	int	moved;
+
+	moved = rotate(a);
+	moved += rotate(b);
+	if (moved > 0)
+		write(1, "rr\n", 3);
 }

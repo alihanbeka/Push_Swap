@@ -28,3 +28,13 @@ void	rrb(t_stack **b)
 	if (reverse_rotate(b))
 		write(1, "rrb\n", 4);
 }
+
+void	rrr(t_stack **a, t_stack **b)
+{
+	int	moved;
+
+	moved = reverse_rotate(a);
+	moved += reverse_rotate(b);
+	if (moved > 0)
+		write(1, "rrr\n", 4);
+}
