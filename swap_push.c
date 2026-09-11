@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   swap_push.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/10 17:00:57 by masik            #+#    #+#              */
-/*   Updated: 2026/09/11 01:25:47 by masik           ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   swap_push.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/10 17:00:57 by masik             #+#    #+#             */
+/*   Updated: 2026/09/11 15:57:44 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,13 @@ void	swap(t_stack **stack)
 
 void	sa(t_stack **a)
 {
-	t_stack	*tmp;
-
-	if (!a || !(*a) || (*a)->next == NULL)
-		return ;
-	tmp = (*a)->next;
-	(*a)->next = tmp->next;
-	(tmp)->next = (*a);
-	(*a) = tmp;
+	swap(a);
 	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **b)
 {
-	t_stack	*tmp;
-
-	if (!b || !(*b) || (*b)->next == NULL)
-		return ;
-	tmp = (*b)->next;
-	(*b)->next = tmp->next;
-	tmp->next = (*b);
-	(*b) = tmp;
+	swap(b);
 	write(1, "sb\n", 3);
 }
 
