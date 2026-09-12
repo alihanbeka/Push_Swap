@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/10 23:23:07 by masik            #+#    #+#              */
-/*   Updated: 2026/09/11 01:05:15 by masik           ###   ########.fr        */
+/*   Updated: 2026/09/12 16:04:35 by masik           ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,11 @@ void	rb(t_stack **b)
 
 void	rr(t_stack **a, t_stack **b)
 {
-	int	moved;
+	int	r_a;
+	int	r_b;
 
-	moved = rotate(a);
-	moved += rotate(b);
-	if (moved > 0)
+	r_a = rotate(a);
+	r_b = rotate(b);
+	if (r_a || r_b)
 		write(1, "rr\n", 3);
 }

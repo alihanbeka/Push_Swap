@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                       :::      ::::::::    */
+/*   reverse.c                                         :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/09/12 15:38:14 by masik            #+#    #+#              */
+/*   Updated: 2026/09/12 16:00:40 by masik           ###   ########.fr        */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Push_Swap.h"
 
 static int	reverse_rotate(t_stack **stack)
@@ -31,10 +43,11 @@ void	rrb(t_stack **b)
 
 void	rrr(t_stack **a, t_stack **b)
 {
-	int	moved;
+	int	rr_a;
+	int	rr_b;
 
-	moved = reverse_rotate(a);
-	moved += reverse_rotate(b);
-	if (moved > 0)
+	rr_a = reverse_rotate(a);
+	rr_b = reverse_rotate(b);
+	if (rr_a || rr_b)
 		write(1, "rrr\n", 4);
 }
