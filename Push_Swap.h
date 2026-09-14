@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/10 17:41:29 by masik            #+#    #+#              */
-/*   Updated: 2026/09/12 16:09:01 by masik           ###   ########.fr        */
+/*   Updated: 2026/09/13 17:17:00 by masik           ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-
+void	stack_add_back(t_stack **stack, t_stack *new_stack);
+t_stack	*stack_new(int value);
 #endif

@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/11 23:32:21 by masik             #+#    #+#             */
-/*   Updated: 2026/09/13 15:40:20 by masik            ###   ########.fr       */
+/*   Created: 2026/08/06 16:48:23 by masik             #+#    #+#             */
+/*   Updated: 2026/08/13 01:15:18 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Push_Swap.h"
-
-void	pa(t_stack **a, t_stack **b)
+int	ft_atoi(const char *str)
 {
-	t_stack	*tmp;
+	int	i;
+	int	ng;
+	int	sayi;
 
-	if (!b || !(*b))
-		return ;
-	tmp = (*b);
-	(*b) = (*b)->next;
-	tmp->next = (*a);
-	(*a) = tmp;
-	write(1, "pa\n", 3);
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	t_stack	*tmp;
-
-	if (!a || (!*a))
-		return ;
-	tmp = (*a);
-	(*a) = (*a)->next;
-	tmp->next = (*b);
-	(*b) = tmp;
-	write(1, "pb\n", 3);
+	i = 0;
+	ng = 1;
+	sayi = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			ng = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		sayi = 10 * sayi + (str[i] - '0');
+		i++;
+	}
+	return (ng * sayi);
 }
