@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 16:53:18 by masik             #+#    #+#             */
-/*   Updated: 2026/09/13 17:14:12 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/15 15:44:35 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,17 @@ void	stack_add_back(t_stack **stack, t_stack *new_stack)
 	while ((last)->next)
 		last = (last)->next;
 	(last)->next = new_stack;
+}
+
+int	stack_size(t_stack *stack)
+{
+	int	size;
+
+	size = 0;
+	while (stack != NULL)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
 }
