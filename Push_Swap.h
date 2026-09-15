@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/10 17:41:29 by masik            #+#    #+#              */
-/*   Updated: 2026/09/15 14:17:11 by masik           ###   ########.fr        */
+/*   Updated: 2026/09/15 14:29:24 by masik           ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ t_stack	*stack_new(int value);
 void	stack_clear(t_stack **stack);
 int		ft_atoi_check(const char *str, int *out);
 int		check_duplicate(t_stack *stack, int value);
+int		parse_arguments(int ac, char **av, t_stack **a, int *flag);
 #endif
