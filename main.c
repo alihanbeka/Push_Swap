@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 14:57:09 by masik             #+#    #+#             */
-/*   Updated: 2026/09/14 23:51:02 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/15 14:11:49 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,20 @@ int	main(int ac, char **av)
 	i = 1;
 	if (ac < 2)
 		return (0);
-	if (ft_strncmp(av[i], "--", 2) == 0)   
+	if (ft_strncmp(av[i], "--", 2) == 0)
 	{
-		if (ft_strncmp(av[i], "--simple", 8) == 0)
+		if (ft_strncmp(av[i], "--simple", 9) == 0)
 			flag = 1;
-		else if (ft_strncmp(av[i], "--medium", 8) == 0)
+		else if (ft_strncmp(av[i], "--medium", 9) == 0)
 			flag = 2;
-		else if (ft_strncmp(av[i], "--complex", 9) == 0)
+		else if (ft_strncmp(av[i], "--complex", 10) == 0)
 			flag = 3;
-		else if (ft_strncmp(av[i], "--adaptive", 10) == 0)
+		else if (ft_strncmp(av[i], "--adaptive", 11) == 0)
 			flag = 0;
-		else 
+		else
 		{
-			write(2, "Error\n", 6); //
+			write(2, "Error\n", 6);
+			//
 			return (1);
 		}
 		i++;
@@ -46,13 +47,19 @@ int	main(int ac, char **av)
 	{
 		if (!ft_atoi_check(av[i], &val) || check_duplicate(lst, val))
 		{
-			write(2, "Error\n", 6); //[cite: 1]
-			free_stack(&lst);
+			write(2, "Error\n", 6);
+			stack_clear(&lst);
 			return (1);
 		}
 		stack_add_back(&lst, stack_new(val));
 		i++;
 	}
+	index_assignment(lst);
 	if (!lst)
 		return (0);
+	while (lst)
+	{
+		printf("Value: %d, Index: %d\n", lst->value, lst->index);
+		lst = lst->next;
+	}
 }
