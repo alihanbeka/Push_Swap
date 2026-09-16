@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 16:53:18 by masik             #+#    #+#             */
-/*   Updated: 2026/09/15 15:44:35 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/17 00:46:17 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,15 @@ int	stack_size(t_stack *stack)
 		stack = stack->next;
 	}
 	return (size);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	while (stack != NULL && stack->next != NULL)
+	{
+		if (stack->index > stack->next->index)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

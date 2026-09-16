@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 14:53:52 by masik             #+#    #+#             */
-/*   Updated: 2026/09/15 18:07:33 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/17 00:46:16 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,34 @@ static void	sort_three(t_stack **a)
 		sa(a);
 }
 
-void	sort_five(t_stack **a, t_stack **b)
+static void	sort_four_five(t_stack **a, t_stack **b)
 {
+	int	target;
+
+	target = 0;
 	while (stack_size(*a) > 3)
 	{
-		while ((*a)->index != 0 && (*a)->index != 1)
+		while ((*a)->index != target)
 			ra(a);
 		pb(a, b);
+		target++;
 	}
 	sort_three(a);
-	if (stack_size(*b) == 2 && (*b)->index < (*b)->next->index)
-		sb(b);
 	while (*b != NULL)
 		pa(a, b);
+}
+
+void	basit_sort(t_stack **a, t_stack **b)
+{
+	int	size;
+
+	if (is_sorted(*a))
+		return ;
+	size = stack_size(*a);
+	if (size == 2)
+		sort_two(a);
+	else if (size == 3)
+		sort_three(a);
+	else if (size == 4 || size == 5)
+		sort_four_five(a, b);
 }
