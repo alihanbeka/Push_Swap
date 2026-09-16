@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 14:53:52 by masik             #+#    #+#             */
-/*   Updated: 2026/09/17 00:46:16 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/17 00:51:36 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	sort_four_five(t_stack **a, t_stack **b)
 		pa(a, b);
 }
 
-void	basit_sort(t_stack **a, t_stack **b)
+void	basic_sort(t_stack **a, t_stack **b)
 {
 	int	size;
 
