@@ -1,0 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Taslakdefteri.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/16 23:31:07 by masik             #+#    #+#             */
+/*   Updated: 2026/09/16 23:31:08 by masik            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Push_Swap.h"
+
+void	sort_stack(t_stack **a, t_stack **b, int flag)
+{
+	int		size;
+	double	disorder;
+
+	size = stack_size(*a);
+	if (is_sorted(*a))
+		return ;
+	if (size == 2)
+		sort_two(a);
+	else if (size == 3)
+		sort_three(a);
+	else if (size <= 5)
+		sort_fournfive(a, b);
+	else
+	{
+		if (flag == 0) // --adaptive veya bayrak girilmediyse
+		{
+			disorder = compute_disorder(a);
+			if (disorder < 0.25)
+				sort_simple(a, b);
+			else if (disorder < 0.60)
+				sort_medium(a, b);
+			else
+				sort_complex(a, b);
+		}
+		else if (flag == 1) // --simple
+			sort_simple(a, b);
+		else if (flag == 2) // --medium
+			sort_medium(a, b);
+		else if (flag == 3) // --complex
+			sort_complex(a, b);
+	}
+}
