@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 14:57:09 by masik             #+#    #+#             */
-/*   Updated: 2026/09/15 14:26:56 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/18 11:46:05 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*tmp;
+	t_stack	*b;
 	int		flag;
 
 	if (ac < 2)
 		return (0);
 	a = NULL;
+	b = NULL;
 	if (!parse_arguments(ac, av, &a, &flag))
 	{
 		stack_clear(&a);
@@ -29,6 +31,10 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	index_assignment(a);
+	if (stack_size(a) <= 5)
+		basic_sort(&a, &b);
+	else
+		sort_medium(&a, &b);
 	tmp = a;
 	while (tmp != NULL)
 	{

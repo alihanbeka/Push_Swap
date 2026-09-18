@@ -6,33 +6,11 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 20:45:40 by masik             #+#    #+#             */
-/*   Updated: 2026/09/17 00:52:10 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/18 10:54:35 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_Swap.h"
-
-void	sort_simple(t_stack **a, t_stack **b)
-{
-	int		min_index;
-	t_stack	*tmp;
-
-	tmp = (*a);
-	min_index = (*a)->index;
-	while (tmp)
-	{
-		if (min_index > tmp->index)
-			min_index = tmp->index;
-		tmp = tmp->next;
-	}
-	while (tmp)
-	{
-		if (min_index != tmp->index)
-			ra(a);
-		tmp = tmp->next;
-	}
-	pb(a, b);
-}
 
 static int	get_target_position(t_stack *a, int target)
 {
