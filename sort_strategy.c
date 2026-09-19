@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Taslakdefteri.c                                    :+:      :+:    :+:   */
+/*   sort_strategy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 23:31:07 by masik             #+#    #+#             */
-/*   Updated: 2026/09/16 23:31:08 by masik            ###   ########.fr       */
+/*   Created: 2026/09/19 00:09:45 by masik             #+#    #+#             */
+/*   Updated: 2026/09/19 13:53:53 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	sort_stack(t_stack **a, t_stack **b, int flag)
 		sort_fournfive(a, b);
 	else
 	{
-		if (flag == 0) // --adaptive veya bayrak girilmediyse
+		if (flag == 0)
 		{
 			disorder = compute_disorder(a);
 			if (disorder < 0.25)
@@ -38,11 +38,11 @@ void	sort_stack(t_stack **a, t_stack **b, int flag)
 			else
 				sort_complex(a, b);
 		}
-		else if (flag == 1) // --simple
+		else if (flag == 1)
 			sort_simple(a, b);
-		else if (flag == 2) // --medium
+		else if (flag == 2)
 			sort_medium(a, b);
-		else if (flag == 3) // --complex
+		else if (flag == 3)
 			sort_complex(a, b);
 	}
 }

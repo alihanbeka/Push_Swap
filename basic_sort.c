@@ -6,19 +6,19 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 14:53:52 by masik             #+#    #+#             */
-/*   Updated: 2026/09/17 00:51:36 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/19 13:44:28 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_Swap.h"
 
-static void	sort_two(t_stack **a)
+void	sort_two(t_stack **a)
 {
 	if ((*a)->index > (*a)->next->index)
 		sa(a);
 }
 
-static void	sort_three(t_stack **a)
+void	sort_three(t_stack **a)
 {
 	int	first;
 	int	second;
@@ -35,7 +35,7 @@ static void	sort_three(t_stack **a)
 		sa(a);
 }
 
-static void	sort_four_five(t_stack **a, t_stack **b)
+void	sort_four_five(t_stack **a, t_stack **b)
 {
 	int	target;
 
@@ -50,19 +50,4 @@ static void	sort_four_five(t_stack **a, t_stack **b)
 	sort_three(a);
 	while (*b != NULL)
 		pa(a, b);
-}
-
-void	basic_sort(t_stack **a, t_stack **b)
-{
-	int	size;
-
-	if (is_sorted(*a))
-		return ;
-	size = stack_size(*a);
-	if (size == 2)
-		sort_two(a);
-	else if (size == 3)
-		sort_three(a);
-	else if (size == 4 || size == 5)
-		sort_four_five(a, b);
 }
