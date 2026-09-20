@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 00:09:45 by masik             #+#    #+#             */
-/*   Updated: 2026/09/19 13:53:53 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/20 14:02:32 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	sort_stack(t_stack **a, t_stack **b, int flag)
 	else if (size == 3)
 		sort_three(a);
 	else if (size <= 5)
-		sort_fournfive(a, b);
+		sort_four_five(a, b);
 	else
 	{
 		if (flag == 0)
 		{
 			disorder = compute_disorder(a);
-			if (disorder < 0.25)
+			if (disorder < 0.20)
 				sort_simple(a, b);
-			else if (disorder < 0.60)
+			else if (disorder < 0.50)
 				sort_medium(a, b);
 			else
 				sort_complex(a, b);
