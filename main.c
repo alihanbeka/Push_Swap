@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 14:57:09 by masik             #+#    #+#             */
-/*   Updated: 2026/09/20 16:16:14 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/21 14:43:54 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int	main(int ac, char **av)
 	sort_stack(&a, &b, flag, &bench);
 	print_bench(&bench, disorder, flag);
 	stack_clear(&a);
+	stack_clear(&b);
 	return (0);
 }
