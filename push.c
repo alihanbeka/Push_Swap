@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 23:32:21 by masik             #+#    #+#             */
-/*   Updated: 2026/09/20 15:01:12 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/21 17:39:13 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	pa(t_stack **a, t_stack **b, t_bench *bench)
 {
 	t_stack	*tmp;
 
-	if (!b || !(*b))
+	if (!a || !b || !(*b))
 		return ;
 	tmp = (*b);
 	(*b) = (*b)->next;
@@ -34,7 +34,7 @@ void	pb(t_stack **a, t_stack **b, t_bench *bench)
 {
 	t_stack	*tmp;
 
-	if (!a || (!*a))
+	if (!a || !b || !(*a))
 		return ;
 	tmp = (*a);
 	(*a) = (*a)->next;

@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/10 17:41:29 by masik            #+#    #+#              */
-/*   Updated: 2026/09/21 14:24:11 by masik           ###   ########.fr        */
+/*   Updated: 2026/09/21 18:14:38 by masik           ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "libft/libft.h"
 
 typedef struct s_stack
 {
@@ -40,7 +41,6 @@ typedef struct s_bench
 	int	is_bench;
 }	t_bench;
 
-// Operasyon Fonksiyonları (Bench parametresi eklendi)
 void	sa(t_stack **a, t_bench *bench);
 void	sb(t_stack **b, t_bench *bench);
 void	ss(t_stack **a, t_stack **b, t_bench *bench);
@@ -52,8 +52,6 @@ void	rr(t_stack **a, t_stack **b, t_bench *bench);
 void	rra(t_stack **a, t_bench *bench);
 void	rrb(t_stack **b, t_bench *bench);
 void	rrr(t_stack **a, t_stack **b, t_bench *bench);
-
-// Stack ve Yardımcı Fonksiyonlar
 void	stack_add_back(t_stack **stack, t_stack *new_stack);
 t_stack	*stack_new(int value);
 void	stack_clear(t_stack **stack);
@@ -64,17 +62,10 @@ int		stack_size(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void	index_assignment(t_stack *stack);
 double	compute_disorder(t_stack **a);
-
-// Sıralama Algoritmaları
 void	sort_simple(t_stack **a, t_stack **b, t_bench *bench);
 void	sort_medium(t_stack **a, t_stack **b, t_bench *bench);
 void	sort_complex(t_stack **a, t_stack **b, t_bench *bench);
 void	sort_stack(t_stack **a, t_stack **b, int flag, t_bench *bench);
-void	sort_two(t_stack **a, t_bench *bench);
-void	sort_three(t_stack **a, t_bench *bench);
-void	sort_four_five(t_stack **a, t_stack **b, t_bench *bench);
-
-// Bench Çıktı Fonksiyonu
 void	init_bench(t_bench *bench);
 void	print_bench(t_bench *bench, double disorder, int flag);
 

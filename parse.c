@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 14:27:50 by masik             #+#    #+#             */
-/*   Updated: 2026/09/21 14:43:46 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/21 17:39:11 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	set_flag(char *arg, int *flag, t_bench *bench)
 {
 	if (ft_strncmp(arg, "--bench", 8) == 0)
 	{
+		if (bench->is_bench)
+			return (0);
 		bench->is_bench = 1;
 		return (1);
 	}
