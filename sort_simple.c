@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 20:45:40 by masik             #+#    #+#             */
-/*   Updated: 2026/09/18 10:54:35 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/20 15:15:38 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	get_target_position(t_stack *a, int target)
 	return (pos);
 }
 
-void	sort_simple(t_stack **a, t_stack **b)
+void	sort_simple(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	target;
 	int	pos;
@@ -43,16 +43,16 @@ void	sort_simple(t_stack **a, t_stack **b)
 		if (pos <= size / 2)
 		{
 			while ((*a)->index != target)
-				ra(a);
+				ra(a, bench);
 		}
 		else
 		{
 			while ((*a)->index != target)
-				rra(a);
+				rra(a, bench);
 		}
-		pb(a, b);
+		pb(a, b, bench);
 		target++;
 	}
 	while (*b != NULL)
-		pa(a, b);
+		pa(a, b, bench);
 }

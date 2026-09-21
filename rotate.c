@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/10 23:23:07 by masik            #+#    #+#              */
-/*   Updated: 2026/09/17 00:52:08 by masik           ###   ########.fr        */
+/*   Updated: 2026/09/20 15:02:37 by masik           ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,33 @@ static int	rotate(t_stack **stack)
 	return (1);
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, t_bench *bench)
 {
 	if (rotate(a))
+	{
 		write(1, "ra\n", 3);
+		if (bench)
+		{
+			bench->ra++;
+			bench->total++;
+		}
+	}
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, t_bench *bench)
 {
 	if (rotate(b))
+	{
 		write(1, "rb\n", 3);
+		if (bench)
+		{
+			bench->rb++;
+			bench->total++;
+		}
+	}
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	r_a;
 	int	r_b;
@@ -54,5 +68,12 @@ void	rr(t_stack **a, t_stack **b)
 	r_a = rotate(a);
 	r_b = rotate(b);
 	if (r_a || r_b)
+	{
 		write(1, "rr\n", 3);
+		if (bench)
+		{
+			bench->rr++;
+			bench->total++;
+		}
+	}
 }

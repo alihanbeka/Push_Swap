@@ -6,14 +6,13 @@
 /*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/10 17:41:29 by masik            #+#    #+#              */
-/*   Updated: 2026/09/19 13:48:09 by masik           ###   ########.fr        */
+/*   Updated: 2026/09/21 14:24:11 by masik           ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "Libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -24,33 +23,59 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-void	index_assignment(t_stack *stack);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
-void	pa(t_stack **a, t_stack **b);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+typedef struct s_bench
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+	int	is_bench;
+}	t_bench;
+
+// Operasyon Fonksiyonları (Bench parametresi eklendi)
+void	sa(t_stack **a, t_bench *bench);
+void	sb(t_stack **b, t_bench *bench);
+void	ss(t_stack **a, t_stack **b, t_bench *bench);
+void	pa(t_stack **a, t_stack **b, t_bench *bench);
+void	pb(t_stack **a, t_stack **b, t_bench *bench);
+void	ra(t_stack **a, t_bench *bench);
+void	rb(t_stack **b, t_bench *bench);
+void	rr(t_stack **a, t_stack **b, t_bench *bench);
+void	rra(t_stack **a, t_bench *bench);
+void	rrb(t_stack **b, t_bench *bench);
+void	rrr(t_stack **a, t_stack **b, t_bench *bench);
+
+// Stack ve Yardımcı Fonksiyonlar
 void	stack_add_back(t_stack **stack, t_stack *new_stack);
 t_stack	*stack_new(int value);
 void	stack_clear(t_stack **stack);
 int		ft_atoi_check(const char *str, int *out);
 int		check_duplicate(t_stack *stack, int value);
-int		parse_arguments(int ac, char **av, t_stack **a, int *flag);
+int		parse_arguments(char **av, t_stack **a, int *flag, t_bench *bench);
 int		stack_size(t_stack *stack);
 int		is_sorted(t_stack *stack);
-void	sort_simple(t_stack **a, t_stack **b);
+void	index_assignment(t_stack *stack);
 double	compute_disorder(t_stack **a);
-void	sort_medium(t_stack **a, t_stack **b);
-void	sort_complex(t_stack **a, t_stack **b);
-void	sort_stack(t_stack **a, t_stack **b, int flag);
-void	sort_two(t_stack **a);
-void	sort_three(t_stack **a);
-void	sort_four_five(t_stack **a, t_stack **b);
+
+// Sıralama Algoritmaları
+void	sort_simple(t_stack **a, t_stack **b, t_bench *bench);
+void	sort_medium(t_stack **a, t_stack **b, t_bench *bench);
+void	sort_complex(t_stack **a, t_stack **b, t_bench *bench);
+void	sort_stack(t_stack **a, t_stack **b, int flag, t_bench *bench);
+void	sort_two(t_stack **a, t_bench *bench);
+void	sort_three(t_stack **a, t_bench *bench);
+void	sort_four_five(t_stack **a, t_stack **b, t_bench *bench);
+
+// Bench Çıktı Fonksiyonu
+void	init_bench(t_bench *bench);
+void	print_bench(t_bench *bench, double disorder, int flag);
 
 #endif

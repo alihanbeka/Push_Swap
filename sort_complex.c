@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 16:17:34 by masik             #+#    #+#             */
-/*   Updated: 2026/09/19 13:43:39 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/20 15:17:26 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	max_index_bit(t_stack **a)
 	return (max_bits);
 }
 
-void	sort_complex(t_stack **a, t_stack **b)
+void	sort_complex(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	max_bit;
 	int	i;
@@ -40,13 +40,13 @@ void	sort_complex(t_stack **a, t_stack **b)
 		while (j < size)
 		{
 			if (((*a)->index >> i) & 1)
-				ra(a);
+				ra(a, bench);
 			else
-				pb(a, b);
+				pb(a, b, bench);
 			j++;
 		}
 		while ((*b) != NULL)
-			pa(a, b);
+			pa(a, b, bench);
 		i++;
 	}
 }

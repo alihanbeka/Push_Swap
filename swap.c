@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/10 17:00:57 by masik            #+#    #+#              */
-/*   Updated: 2026/09/12 16:05:14 by masik           ###   ########.fr        */
+/*   Updated: 2026/09/20 15:00:03 by masik           ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,33 @@ static int	swap(t_stack **stack)
 	return (1);
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, t_bench *bench)
 {
 	if (swap(a))
+	{
 		write(1, "sa\n", 3);
+		if (bench)
+		{
+			bench->sa++;
+			bench->total++;
+		}
+	}
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, t_bench *bench)
 {
 	if (swap(b))
+	{
 		write(1, "sb\n", 3);
+		if (bench)
+		{
+			bench->sb++;
+			bench->total++;
+		}
+	}
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	s_a;
 	int	s_b;
@@ -45,5 +59,12 @@ void	ss(t_stack **a, t_stack **b)
 	s_a = swap(a);
 	s_b = swap(b);
 	if (s_a || s_b)
+	{
 		write(1, "ss\n", 3);
+		if (bench)
+		{
+			bench->ss++;
+			bench->total++;
+		}
+	}
 }

@@ -6,13 +6,13 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 23:32:21 by masik             #+#    #+#             */
-/*   Updated: 2026/09/17 00:52:05 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/20 15:01:12 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_Swap.h"
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, t_bench *bench)
 {
 	t_stack	*tmp;
 
@@ -23,9 +23,14 @@ void	pa(t_stack **a, t_stack **b)
 	tmp->next = (*a);
 	(*a) = tmp;
 	write(1, "pa\n", 3);
+	if (bench)
+	{
+		bench->pa++;
+		bench->total++;
+	}
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, t_bench *bench)
 {
 	t_stack	*tmp;
 
@@ -36,4 +41,9 @@ void	pb(t_stack **a, t_stack **b)
 	tmp->next = (*b);
 	(*b) = tmp;
 	write(1, "pb\n", 3);
+	if (bench)
+	{
+		bench->pb++;
+		bench->total++;
+	}
 }

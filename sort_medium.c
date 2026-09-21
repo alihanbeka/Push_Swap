@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 11:24:32 by masik             #+#    #+#             */
-/*   Updated: 2026/09/18 12:35:39 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/20 15:16:47 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	get_max_pos(t_stack *b, int max_index)
 	return (pos);
 }
 
-static void	push_back_to_a(t_stack **a, t_stack **b)
+static void	push_back_to_a(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	max_idx;
 	int	pos;
@@ -53,18 +53,18 @@ static void	push_back_to_a(t_stack **a, t_stack **b)
 		if (pos <= size / 2)
 		{
 			while ((*b)->index != max_idx)
-				rb(b);
+				rb(b, bench);
 		}
 		else
 		{
 			while ((*b)->index != max_idx)
-				rrb(b);
+				rrb(b, bench);
 		}
-		pa(a, b);
+		pa(a, b, bench);
 	}
 }
 
-void	sort_medium(t_stack **a, t_stack **b)
+void	sort_medium(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	chunk_size;
 	int	i;
@@ -77,17 +77,17 @@ void	sort_medium(t_stack **a, t_stack **b)
 	{
 		if ((*a)->index <= i)
 		{
-			pb(a, b);
-			rb(b);
+			pb(a, b, bench);
+			rb(b, bench);
 			i++;
 		}
 		else if ((*a)->index <= i + chunk_size)
 		{
-			pb(a, b);
+			pb(a, b, bench);
 			i++;
 		}
 		else
-			ra(a);
+			ra(a, bench);
 	}
-	push_back_to_a(a, b);
+	push_back_to_a(a, b, bench);
 }
