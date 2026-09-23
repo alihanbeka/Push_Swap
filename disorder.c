@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 18:14:17 by masik             #+#    #+#             */
-/*   Updated: 2026/09/17 00:46:14 by masik            ###   ########.fr       */
+/*   Updated: 2026/09/23 17:37:43 by masik            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,27 @@
 
 double	compute_disorder(t_stack **a)
 {
-	t_stack	*before;
+	t_stack	*curr;
 	t_stack	*next;
 	int		mistakes;
-	int		total_pairs;
+	int		total;
 
-	if (!a || !(*a))
+	if (!a || !*a || !(*a)->next)
 		return (0.0);
 	mistakes = 0;
-	total_pairs = 0;
-	before = (*a);
-	next = before->next;
-	while (before->next != NULL)
+	total = 0;
+	curr = *a;
+	while (curr != NULL)
 	{
-		next = before->next;
+		next = curr->next;
 		while (next != NULL)
 		{
-			if (before->index > next->index)
-				mistakes += 1;
-			total_pairs += 1;
+			if (curr->index > next->index)
+				mistakes++;
+			total++;
 			next = next->next;
 		}
-		before = before->next;
+		curr = curr->next;
 	}
-	if (total_pairs == 0)
-		return (0.0);
-	return ((double) mistakes / total_pairs);
+	return ((double) mistakes / total);
 }
