@@ -6,7 +6,7 @@
 /*   By: masik <masik@student.42istanbul.com.tr>   #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/09/10 17:41:29 by masik            #+#    #+#              */
-/*   Updated: 2026/09/21 18:14:38 by masik           ###   ########.fr        */
+/*   Updated: 2026/09/25 16:56:31 by masik           ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ void	sort_complex(t_stack **a, t_stack **b, t_bench *bench);
 void	sort_stack(t_stack **a, t_stack **b, int flag, t_bench *bench);
 void	init_bench(t_bench *bench);
 void	print_bench(t_bench *bench, double disorder, int flag);
+void	sort_two(t_stack **a, t_bench *bench);
+void	sort_three(t_stack **a, t_bench *bench);
+void	sort_four_five(t_stack **a, t_stack **b, t_bench *bench);
 
 #endif

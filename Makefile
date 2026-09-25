@@ -22,7 +22,8 @@ SRCS = main.c \
 	sort_medium.c \
 	sort_complex.c \
 	sort_strategy.c \
-	bench.c
+	bench.c \
+	basic_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
