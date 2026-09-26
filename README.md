@@ -107,6 +107,21 @@ AI was used to assist with the following tasks:
 
 ## Algorithms
 
+### Small Inputs — Shared Sorting Optimization
+
+Inputs containing 2 to 5 elements are fully sorted by a shared routine. Once this routine finishes, no further sorting algorithm is executed. This optimization applies to all strategy selectors, including the default adaptive mode.
+
+- **2 elements:** swap them if they are in the wrong order.
+- **3 elements:** move the largest element to the bottom, then swap the first two if necessary.
+- **4 or 5 elements:** move the smallest remaining index to the top using the shorter rotation direction, then push it to stack `b`. Repeat until three elements remain in `a`, sort those three, and push the extracted elements back to `a`.
+
+Already sorted inputs produce no operations.
+
+For inputs larger than five elements, the selected strategy runs its regular algorithm. In adaptive mode, the disorder thresholds determine which algorithm is used.
+
+Benchmark output retains the selected strategy name and its general complexity class. For small inputs, the reported operation counts correspond to the shared sorting routine. For example, `--complex 2 1 0` is completed by the shared routine without running radix passes.
+
+This optimization is an internal special case and does not introduce an additional command-line strategy. Because it is restricted to inputs of at most five elements, it does not change the asymptotic operation complexity of the main strategies.
 The complexity of each strategy is evaluated by the number of generated Push_swap operations, as required by the subject.
 
 Before sorting, each value receives an index from `0` to `n - 1` representing its position in ascending order. Sorting these indices preserves the order of the original values and allows negative and positive integers to be handled in the same way.
